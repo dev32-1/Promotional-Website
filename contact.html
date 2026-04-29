@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact - Pagadian City</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="neon-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/images/logo.png" alt="Pagadian City seal" class="brand-logo" />
+        <span class="brand-text">Pagadian City</span>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+        <span class="hamburger"></span>
+      </button>
+      <nav class="nav" id="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="attractions.html">Attractions</a></li>
+          <li><a href="culture.html">Culture</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container contact">
+      <h1>Contact & Plan Your Visit</h1>
+      <p>For tourism inquiries, consider contacting local government offices or the provincial tourism office. Below are general tips and a sample contact layout.</p>
+
+      <h2>Getting There</h2>
+      <p>Pagadian is accessible by land through regional highways and by air via Pagadian City Airport (check flight schedules and connections). Local transport includes taxis, jeepneys, and tricycles.</p>
+
+      <h2>Visitor Tips</h2>
+      <ul>
+        <li>Bring sun protection and light clothing.</li>
+        <li>Respect local customs and religious observances.</li>
+        <li>Try local markets for fresh seafood and regional produce.</li>
+      </ul>
+
+      <h2>Sample Contact</h2>
+      <address>
+        <strong>Pagadian City Tourism / Local Offices</strong><br>
+        Pagadian City, Zamboanga del Sur<br>
+        Philippines
+      </address>
+
+      <h2>Location (Google Maps)</h2>
+      <div class="map-wrap" aria-hidden="false">
+        <iframe
+          src="https://www.google.com/maps?q=Pagadian%20City%2C%20Philippines&z=12&output=embed"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Pagadian City map"></iframe>
+      </div>
+
+      <h2>Send a Message</h2>
+      <form id="contact-form" action="#" method="post">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="cta">Send Message</button>
+      </form>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Pagadian City - Promotional Site</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

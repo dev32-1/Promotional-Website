@@ -1,0 +1,297 @@
+/* Basic reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:#e9f0ff;line-height:1.5;}
+.container{max-width:1100px;margin:0 auto;padding:1rem}
+
+/* Typography style inspired by provided dark card image */
+:root{--bg:#0f0b12;--panel:#1a1218;--muted:#bfb6bf;--accent:#f3edf8}
+body{background:var(--bg);color:var(--muted);}
+
+h1,h2,h3{color:var(--accent);font-family:'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif}
+h1{font-size:1.6rem;letter-spacing:0.2px}
+h2{font-size:1.05rem;margin-top:1.25rem}
+h3{font-size:1rem}
+
+/* Card-like panels for sections */
+.container.contact, .container.info, .container{background:transparent}
+.panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1rem;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 20px rgba(0,0,0,0.45)}
+
+/* Card boxes for destination items */
+.dest-grid figure{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));border:1px solid rgba(255,255,255,0.02);box-shadow:inset 0 1px 0 rgba(255,255,255,0.01);}
+
+/* Text styling similar to the sample: bold titles, soft body copy */
+.dest-grid figcaption, .attraction-list h3{color:var(--accent);font-weight:700}
+p,li,address{color:var(--muted)}
+
+/* Hover effect: scale up heading slightly on hover */
+h2:hover, h3:hover{transform:translateY(-3px) scale(1.03);transition:transform .18s ease}
+
+/* Reveal cards effect */
+.reveal{opacity:0;transform:translateY(12px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+
+/* Text box around subsection content */
+.text-box{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));padding:1rem;border-radius:10px;border:1px solid rgba(255,255,255,0.03);margin:0.6rem 0 1rem}
+.text-box p, .text-box ul, .text-box address{color:var(--muted);margin:0}
+.text-box ul{padding-left:1.1rem}
+
+/* Neon animated background */
+.neon-bg{
+  position:fixed;inset:0;z-index:-2;filter:blur(40px);opacity:0.9;
+  background:linear-gradient(120deg,#a8ff78 0%, #78ffd6 25%, #78a1ff 50%, #b478ff 75%, #ff78c5 100%);
+  background-size:300% 300%;
+  animation:movebg 15s linear infinite;
+}
+@keyframes movebg{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+/* Slight overlay to soften */
+.neon-bg::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45)}
+
+/* Header / Nav */
+.site-header{position:sticky;top:0;background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.15));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.04);z-index:10}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem}
+.brand{font-weight:700;font-size:1.25rem;letter-spacing:0.5px}
+
+/* Brand logo next to text */
+.brand{display:flex;align-items:center;gap:0.6rem}
+.brand-logo{width:44px;height:44px;object-fit:contain;border-radius:6px;display:inline-block}
+.brand-text{font-weight:700}
+
+.nav{ }
+.nav ul{display:flex;gap:1rem;list-style:none}
+.nav a{display:block;padding:0.5rem 0.75rem;color:inherit;text-decoration:none;border-radius:6px;transition:background .18s}
+.nav a:hover, .nav a:focus{background:rgba(255,255,255,0.06)}
+
+/* Hamburger */
+.nav-toggle{background:transparent;border:0;color:inherit;display:none;padding:0.5rem;border-radius:6px}
+.hamburger{display:block;width:22px;height:2px;background:#fff;position:relative}
+.hamburger::before,.hamburger::after{content:"";position:absolute;left:0;width:22px;height:2px;background:#fff}
+.hamburger::before{top:-7px}
+.hamburger::after{top:7px}
+
+/* Hero */
+.hero{padding:6rem 0 3rem;min-height:60vh;display:flex;align-items:center}
+.hero-inner{backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(0,0,0,0.25),rgba(0,0,0,0.12));padding:2rem;border-radius:12px}
+.hero h1{font-size:2rem;margin-bottom:.5rem}
+.hero p{opacity:0.95;margin-bottom:1rem}
+.cta{display:inline-block;padding:.6rem 1rem;background:rgba(255,255,255,0.06);border-radius:8px;color:inherit;text-decoration:none}
+
+/* Page images */
+.page-img{
+  width:100%;
+  max-width:1400px; /* allow the image to span wider on large screens */
+  height:auto;
+  max-height:70vh; /* keep it from getting too tall */
+  object-fit:cover;
+  border-radius:10px;
+  margin:0 auto 1rem;
+  display:block;
+  box-shadow:0 6px 18px rgba(0,0,0,0.25);
+}
+
+@media (max-width:1200px){
+  .page-img{max-width:1100px;max-height:60vh}
+}
+
+@media (max-width:900px){
+  .page-img{width:100%;max-width:100%;max-height:46vh}
+}
+
+@media (max-width:480px){
+  .page-img{max-height:32vh}
+}
+
+/* Form styles */
+form{display:flex;flex-direction:column;gap:.6rem;max-width:700px}
+label{font-weight:600}
+input,textarea{padding:.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.35);color:inherit}
+button.cta{border:0;cursor:pointer}
+
+/* Content sections */
+section{padding:2.25rem 0}
+.attraction-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.attraction-list li{background:rgba(255,255,255,0.03);padding:1rem;border-radius:10px}
+
+/* Destination gallery */
+.dest-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:1rem;align-items:start}
+.dest-grid figure{background:rgba(255,255,255,0.03);padding:.75rem;border-radius:10px;text-align:center}
+.dest-grid img{width:100%;height:320px;object-fit:cover;border-radius:8px;display:block}
+.dest-grid figcaption{margin-top:.6rem;font-weight:600}
+
+/* Larger gallery on wide screens */
+@media (min-width:1200px){
+  .dest-grid{grid-template-columns:repeat(3,1fr)}
+  .dest-grid img{height:360px}
+}
+@media (min-width:1600px){
+  .dest-grid img{height:420px}
+}
+
+/* Cards grid for attractions (no images) */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:1rem}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));padding:1.25rem;border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:inset 0 1px 0 rgba(255,255,255,0.01)}
+.card h3{color:var(--accent);font-size:1rem;margin-bottom:.6rem}
+.card p{color:var(--muted);line-height:1.5}
+
+/* Slight hover lift */
+.card:hover{transform:translateY(-6px);transition:transform .22s cubic-bezier(.2,.9,.2,1)}
+
+@media (max-width:700px){
+  .cards{grid-template-columns:1fr}
+}
+
+.site-footer{padding:1.5rem 0;text-align:center;background:transparent;border-top:1px solid rgba(255,255,255,0.03)}
+
+/* Responsive */
+@media (max-width:900px){
+  .nav-toggle{display:inline-flex;align-items:center}
+  .nav ul{position:relative;flex-direction:column;gap:0;background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.25));overflow:hidden;max-height:0;transition:max-height .28s ease;padding:0 1rem}
+  .nav[aria-expanded="true"] ul{max-height:420px;padding:0.75rem 1rem}
+
+/* Map styling */
+.map-wrap{width:100%;max-width:1400px;height:min(80vh,1000px);border-radius:10px;overflow:hidden;margin-bottom:1rem}
+.map-wrap iframe{width:100%;height:100%;border:0}
+
+@media (max-width:900px){
+  .map-wrap{height:min(65vh,900px)}
+}
+
+@media (max-width:480px){
+  .map-wrap{height:60vh}
+}
+
+/* Make the contact page map full-bleed and larger */
+.container.contact .map-wrap{
+  /* Centered large map inside page content */
+  width:90%;
+  max-width:1200px;
+  margin:1.5rem auto;
+  height:min(72vh,900px);
+  border-radius:12px;
+  overflow:hidden;
+}
+
+@media (max-width:900px){
+  .container.contact .map-wrap{height:60vh;width:95%}
+}
+
+@media (max-width:480px){
+  .container.contact .map-wrap{height:48vh;width:100%;margin:1rem 0}
+}
+.map-wrap iframe{width:100%;height:100%;border:0}
+  .nav a{padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,0.02)}
+}
+
+/* Typography tweaks */
+h2{font-size:1.25rem;margin-bottom:.75rem}
+h3{font-size:1rem;margin-bottom:.4rem}
+p,li,address{font-size:0.98rem;color:rgba(233,240,255,0.95)}
+
+/* Accessibility focus */
+a:focus{outline:2px dashed rgba(255,255,255,0.2);outline-offset:3px}
+
+/* Small devices hero tweak */
+@media (max-width:480px){
+  .hero{padding:4rem 0}
+  .hero h1{font-size:1.5rem}
+}
+
+/* Improve nav expanded attribute styling default */
+.nav[aria-expanded="true"] ul{max-height:420px;padding:0.75rem 1rem}
+
+/* Fix map sizing and centering for contact page */
+/* These rules override earlier map rules and ensure the iframe is centered and larger */
+.map-wrap{
+  width:100%;
+  max-width:1400px;
+  height:min(72vh,1000px);
+  margin:1.5rem auto;
+  border-radius:12px;
+  overflow:hidden;
+  display:block;
+}
+.container.contact .map-wrap{
+  /* keep the map large within the contact container and centered */
+  width:100%;
+  max-width:1400px;
+  margin:1.5rem auto;
+  height:min(72vh,1000px);
+}
+.map-wrap iframe{width:100%;height:100%;display:block;border:0}
+
+@media (max-width:900px){
+  .map-wrap, .container.contact .map-wrap{height:min(60vh,900px);width:95%;}
+}
+
+@media (max-width:480px){
+  .map-wrap, .container.contact .map-wrap{height:48vh;width:100%;margin:1rem 0}
+}
+
+/* Moving neon glow for headers/panels and navigation */
+:root{--neon-grad: linear-gradient(90deg, rgba(168,255,120,0.55) 0%, rgba(120,255,214,0.45) 25%, rgba(120,161,255,0.38) 50%, rgba(180,120,255,0.35) 75%, rgba(255,120,197,0.38) 100%)}
+@keyframes neonShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Glow wrapper around header and panels */
+.neon-edge{
+  position:relative;
+}
+.neon-edge::before{
+  content:"";
+  position:absolute;
+  inset: -6px; /* sits outside the box */
+  z-index:-1;
+  border-radius:inherit;
+  background:var(--neon-grad);
+  background-size:220% 220%;
+  /* Softer glow: less blur and less saturation/opacity */
+  filter:blur(8px) saturate(80%);
+  opacity:0.28;
+  animation:neonShift 18s linear infinite;
+  pointer-events:none;
+}
+
+/* apply to sticky header and main panels */
+.site-header.neon-edge, .panel.neon-edge, .container.neon-edge{border-radius:12px}
+
+/* navigation link subtle neon on hover */
+.nav a{position:relative}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;border-radius:4px;background:transparent;transform:scaleX(0);transform-origin:left;transition:transform .28s ease}
+.nav a:hover::after{transform:scaleX(1);background:linear-gradient(90deg,#78a1ff,#b478ff,#ff78c5)}
+
+/* ensure the neon behind header doesn't cover content */
+.site-header{z-index:20}
+
+
+/* Interactive images / lightbox */
+.interactive-img{cursor:pointer;display:block;margin:0 auto;transition:transform .18s ease;outline:none}
+.interactive-img:hover,.interactive-img:focus{transform:scale(1.03)}
+
+.lb-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.88);display:flex;align-items:center;justify-content:center;z-index:9999;padding:2rem}
+.lb-overlay.lb-hidden{display:none}
+.lb-image{max-width:90vw;max-height:90vh;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.6);display:block}
+.lb-caption{position:absolute;bottom:1.25rem;left:50%;transform:translateX(-50%);color:var(--muted);max-width:90%;text-align:center;font-size:.95rem}
+
+.lb-controls{position:absolute;top:1rem;right:1rem;display:flex;gap:.5rem;z-index:10010}
+.lb-btn{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);color:var(--accent);padding:.45rem .6rem;border-radius:6px;cursor:pointer}
+
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.28);color:var(--accent);border:0;padding:.45rem .7rem;border-radius:999px;cursor:pointer;z-index:10010}
+.lb-prev{left:1rem}
+.lb-next{right:1rem}
+
+/* Make sure lightbox is responsive on very small screens */
+@media (max-width:480px){
+  .lb-image{max-width:95vw;max-height:78vh}
+  .lb-nav{padding:.35rem .5rem}
+}
+
+/* Ensure images are centered by default unless explicitly styled otherwise */
+img{display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto}
+
